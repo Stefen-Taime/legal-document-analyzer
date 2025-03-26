@@ -13,6 +13,8 @@ Ce projet est une preuve de concept (PoC) pour un agent d'analyse de documents j
 
 ## Architecture
 
+![Architecture du PoC](docs/img/architecture.png)
+
 Le projet suit une architecture API-first avec les composants suivants :
 
 - **Backend** : Python avec FastAPI pour les API RESTful
