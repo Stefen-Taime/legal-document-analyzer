@@ -1,0 +1,7 @@
+**/*
+*.vue
+*.js
+node_modules/**
+src/**
+public/**
+dist/**

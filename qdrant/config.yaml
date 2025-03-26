@@ -1,0 +1,22 @@
+# Qdrant configuration
+storage:
+  # Storage persistence path
+  storage_path: /qdrant/storage
+
+service:
+  # Host to bind the service
+  host: 0.0.0.0
+  # HTTP port to bind the service
+  http_port: 6333
+  # gRPC port to bind the service
+  grpc_port: 6334
+
+# Telemetry settings
+telemetry:
+  # Whether to disable anonymous telemetry
+  disabled: true
+
+# Logging settings
+log:
+  # Log level
+  level: INFO

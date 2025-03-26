@@ -1,0 +1,46 @@
+# Environnement virtuel Python
+venv/
+.env
+.env.*
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*.so
+
+# Fichiers de logs
+*.log
+
+# VSCode settings
+.vscode/
+
+# Uploads temporaires
+api/uploads/
+
+# Node modules pour le frontend
+frontend/node_modules/
+
+# Fichiers de build frontend (si générés)
+frontend/dist/
+frontend/.cache/
+
+# Déploiement / scripts temporaires
+*.sh~
+
+# Docker artefacts
+*.pid
+*.sock
+
+# macOS / Linux
+.DS_Store
+Thumbs.db
+
+# Tests de couverture ou fichiers de test
+coverage/
+htmlcov/
+.cache/
+pytest_cache/
+
+# TODO temporaire
+todo.md~
+.env
