@@ -380,6 +380,86 @@ class LLMService:
             logger.debug(f"Réponse brute: {result[:500]}...")
             return []
     
+    async def identify_precedents(
+        self,
+        clauses: List[Dict[str, Any]],
+        document_type: str,
+        provider: Optional[LLMProvider] = None
+    ) -> List[Dict[str, Any]]:
+        """Identifie les précédents juridiques pertinents pour les clauses extraites"""
+        
+        logger.info(f"Identification des précédents juridiques pour un document de type {document_type}")
+        
+        system_message = (
+            "Vous êtes un expert juridique français spécialisé dans la recherche de précédents juridiques.\n"
+            "Votre tâche est d'identifier des précédents pertinents (jurisprudence, décisions, etc.) "
+            "qui pourraient s'appliquer aux clauses analysées. Concentrez-vous sur les précédents "
+            "les plus pertinents pour chaque clause en expliquant clairement leur relation et impact "
+            "potentiel sur l'interprétation du document actuel.\n\n"
+            "Utilisez uniquement des précédents réels et vérifiables du droit français ou européen."
+        )
+        
+        # Convertir la liste de clauses en texte
+        clauses_text = json.dumps(clauses, ensure_ascii=False, indent=2)
+        
+        # Instructions JSON
+        json_instructions = (
+            "Répondez au format JSON suivant:\n"
+            "[\n"
+            "  {\n"
+            "    \"title\": \"Titre du précédent\",\n"
+            "    \"description\": \"Description du précédent\",\n"
+            "    \"type\": \"Type de précédent (jurisprudence, décision, etc.)\",\n"
+            "    \"relevance\": \"Pertinence par rapport au document analysé\",\n"
+            "    \"source\": \"Source du précédent (tribunal, référence, etc.)\"\n"
+            "  },\n"
+            "  ...\n"
+            "]"
+        )
+        
+        prompt = (
+            f"Sur la base des clauses suivantes extraites d'un document juridique de type {document_type}, "
+            "identifiez les précédents juridiques (jurisprudence, décisions de régulateurs, etc.) "
+            "les plus pertinents pour l'interprétation et l'évaluation du document.\n\n"
+            "Clauses extraites:\n"
+            f"{clauses_text}\n\n"
+            "Pour chaque précédent, fournissez:\n"
+            "1. Un titre précis et descriptif incluant la juridiction et la date\n"
+            "2. Une description concise mais complète du précédent\n"
+            "3. Le type de précédent (jurisprudence, décision administrative, etc.)\n"
+            "4. Une explication détaillée de sa pertinence pour les clauses analysées\n"
+            "5. La source exacte (tribunal, chambre, numéro d'arrêt ou de décision)\n\n"
+            "Identifiez au moins 3 précédents pertinents, mais pas plus de 7.\n\n"
+        ) + json_instructions
+        
+        result = await self.generate_text(
+            prompt=prompt,
+            provider=provider,
+            system_message=system_message,
+            temperature=0.3,
+            max_tokens=4000
+        )
+        
+        # Extraire le JSON de la réponse
+        try:
+            start_idx = result.find('[')
+            end_idx = result.rfind(']') + 1
+            
+            if start_idx >= 0 and end_idx > start_idx:
+                json_str = result[start_idx:end_idx]
+                parsed_result = json.loads(json_str)
+                logger.info(f"Identification des précédents réussie: {len(parsed_result)} précédents identifiés")
+                return parsed_result
+            else:
+                # Fallback: essayer de parser toute la réponse
+                parsed_result = json.loads(result)
+                logger.info(f"Identification des précédents réussie (fallback): {len(parsed_result)} précédents identifiés")
+                return parsed_result
+        except json.JSONDecodeError as e:
+            logger.error(f"Erreur lors du parsing JSON des précédents: {str(e)}")
+            logger.debug(f"Réponse brute: {result[:500]}...")
+            return []
+    
     async def identify_risks(
         self,
         clauses: List[Dict[str, Any]],

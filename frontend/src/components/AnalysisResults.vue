@@ -48,8 +48,14 @@
                   </div>
                   <p>{{ recommendation.description }}</p>
                   <div v-if="recommendation.suggested_text" class="suggested-text">
-                    <h4>Texte suggéré</h4>
+                    <h4>Proposition de formulation</h4>
                     <p>{{ recommendation.suggested_text }}</p>
+                  </div>
+                  <div v-if="recommendation.related_clauses && recommendation.related_clauses.length > 0" class="related-clauses">
+                    <h4>Clauses concernées</h4>
+                    <div class="related-clauses-list">
+                      <Chip v-for="(clause, i) in recommendation.related_clauses" :key="i" :label="clause" class="mr-2 mb-2" />
+                    </div>
                   </div>
                   <Divider />
                 </div>
@@ -68,6 +74,10 @@
                     <h4>Impact potentiel</h4>
                     <p>{{ risk.impact }}</p>
                   </div>
+                  <div v-if="risk.mitigation" class="risk-mitigation">
+                    <h4>Pistes de mitigation</h4>
+                    <p>{{ risk.mitigation }}</p>
+                  </div>
                   <Divider />
                 </div>
               </div>
@@ -84,6 +94,10 @@
                   <div class="precedent-relevance">
                     <h4>Pertinence</h4>
                     <p>{{ precedent.relevance }}</p>
+                  </div>
+                  <div v-if="precedent.source" class="precedent-source">
+                    <h4>Source</h4>
+                    <p>{{ precedent.source }}</p>
                   </div>
                   <Divider />
                 </div>
@@ -272,6 +286,44 @@ export default {
 
 .suggested-text h4 {
   color: #0284c7;
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+}
+
+.related-clauses h4 {
+  color: #64748b;
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.related-clauses-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.risk-mitigation {
+  background-color: #f0f9ef;
+  padding: 1rem;
+  border-radius: 4px;
+  margin: 0.5rem 0;
+}
+
+.risk-mitigation h4 {
+  color: #16a34a;
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+}
+
+.precedent-source {
+  background-color: #f0f7f4;
+  padding: 1rem;
+  border-radius: 4px;
+  margin: 0.5rem 0;
+}
+
+.precedent-source h4 {
+  color: #047857;
   margin: 0 0 0.5rem 0;
   font-size: 1rem;
 }

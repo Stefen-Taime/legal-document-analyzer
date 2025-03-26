@@ -1,0 +1,58 @@
+[
+    {
+      "title": "Cour de Cassation, arrêt du 4 mai 2022",
+      "description": "La Cour de Cassation a jugé qu'une clause de non-concurrence sans contrepartie financière est nulle. L'employeur ne peut se prévaloir d'une telle clause qui est considérée comme portant une atteinte disproportionnée à la liberté du travail.",
+      "type": "Jurisprudence",
+      "relevance": "Pertinent pour les clauses de non-concurrence dans les contrats de travail. Permet d'identifier les clauses non valides qui pourraient être contestées.",
+      "source": "Cour de Cassation, chambre sociale, n°20-22.210"
+    },
+    {
+      "title": "CNIL - Délibération n°SAN-2023-012 du 15 novembre 2023",
+      "description": "La CNIL a sanctionné une entreprise pour des clauses de confidentialité trop larges imposées aux employés, considérant qu'elles n'étaient pas proportionnées à l'objectif de protection des informations sensibles et limitaient excessivement la liberté d'expression des salariés après leur départ.",
+      "type": "Décision administrative",
+      "relevance": "Important pour l'équilibre entre protection des secrets d'affaires et liberté professionnelle. Aide à formuler des clauses de confidentialité conformes au RGPD.",
+      "source": "Commission Nationale de l'Informatique et des Libertés, Délibération n°SAN-2023-012"
+    },
+    {
+      "title": "Conseil d'État, décision n°466242 du 8 mars 2023",
+      "description": "Le Conseil d'État a rejeté le recours contre un appel d'offres incluant des clauses d'exclusivité, jugeant que ces clauses étaient nécessaires à l'exécution du marché public et proportionnées à l'objectif poursuivi par l'administration.",
+      "type": "Jurisprudence administrative",
+      "relevance": "Pertinent pour les clauses d'exclusivité dans les contrats publics et par extension dans certains contrats commerciaux. Définit les critères de validité de ces clauses.",
+      "source": "Conseil d'État, 7ème chambre, décision n°466242"
+    },
+    {
+      "title": "Cour d'appel de Paris, pôle 5, chambre 4, 19 janvier 2022",
+      "description": "La cour a invalidé une clause de résiliation unilatérale sans préavis dans un contrat de distribution, jugeant qu'elle créait un déséquilibre significatif entre les droits et obligations des parties au détriment du distributeur, en violation de l'article L.442-1 du Code de commerce.",
+      "type": "Jurisprudence",
+      "relevance": "Essentiel pour l'analyse des clauses de résiliation dans les contrats commerciaux. Permet d'identifier les clauses potentiellement abusives.",
+      "source": "Cour d'appel de Paris, pôle 5, chambre 4, arrêt n°19/03834"
+    },
+    {
+      "title": "CJUE, arrêt VB c/ LM, 3 juin 2021 (C-784/19)",
+      "description": "La Cour de Justice de l'Union Européenne a jugé qu'une clause attributive de compétence dans un contrat de consommation n'est valable que si elle a été expressément portée à la connaissance du consommateur et acceptée spécifiquement par celui-ci. Une simple référence aux conditions générales n'est pas suffisante.",
+      "type": "Jurisprudence européenne",
+      "relevance": "Fondamental pour les clauses attributives de juridiction dans les contrats de consommation et les conditions générales d'utilisation des entreprises opérant dans l'UE.",
+      "source": "Cour de Justice de l'Union Européenne, affaire C-784/19"
+    },
+    {
+      "title": "Cour de Cassation, arrêt du 17 février 2021",
+      "description": "La Cour de Cassation a confirmé la nullité d'une clause de mobilité géographique trop imprécise qui ne définissait pas avec exactitude sa zone géographique d'application, considérant qu'elle ne permettait pas au salarié d'évaluer l'ampleur de son engagement au moment de la signature du contrat.",
+      "type": "Jurisprudence",
+      "relevance": "Important pour la rédaction des clauses de mobilité dans les contrats de travail. Permet d'identifier les clauses imprécises susceptibles d'être invalidées.",
+      "source": "Cour de Cassation, chambre sociale, n°19-21.897"
+    },
+    {
+      "title": "Autorité de la concurrence, décision n°21-D-11 du 7 juin 2021",
+      "description": "L'Autorité de la concurrence a sanctionné l'utilisation de clauses d'exclusivité trop longues (supérieures à 5 ans) dans des contrats de distribution, estimant qu'elles créaient une barrière artificielle à l'entrée pour les concurrents et constituaient un abus de position dominante.",
+      "type": "Décision administrative",
+      "relevance": "Crucial pour l'analyse des clauses d'exclusivité dans les contrats commerciaux, particulièrement pour les entreprises en position dominante sur leur marché.",
+      "source": "Autorité de la concurrence, décision n°21-D-11"
+    },
+    {
+      "title": "Tribunal judiciaire de Paris, ordonnance de référé du 12 mars 2022",
+      "description": "Le tribunal a suspendu l'application d'une clause de non-dénigrement excessivement large dans un contrat commercial, considérant qu'elle portait une atteinte disproportionnée à la liberté d'expression et qu'elle empêchait toute critique légitime des produits ou services concernés.",
+      "type": "Jurisprudence",
+      "relevance": "Important pour les clauses de non-dénigrement dans les contrats commerciaux et les accords de confidentialité. Permet d'évaluer les limites acceptables de ces clauses.",
+      "source": "Tribunal judiciaire de Paris, ordonnance n°22/53719"
+    }
+  ]
