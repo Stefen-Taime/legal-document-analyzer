@@ -122,6 +122,8 @@
 </template>
 
 <script>
+import PdfExportService from '@/services/export/PdfExportService';
+
 export default {
   name: 'AnalysisResults',
   props: {
@@ -176,13 +178,45 @@ export default {
       return map[priority] || 'Inconnue';
     },
     exportPDF() {
-      // Logique d'export PDF à implémenter
+      if (!this.results) {
+        this.$toast.add({
+          severity: 'error',
+          summary: 'Export impossible',
+          detail: 'Aucun résultat à exporter',
+          life: 3000
+        });
+        return;
+      }
+      
       this.$toast.add({
         severity: 'info',
         summary: 'Export PDF',
-        detail: 'Fonctionnalité à implémenter',
+        detail: 'Génération du PDF en cours...',
         life: 3000
       });
+      
+      // Générer un nom de fichier basé sur la date
+      const date = new Date().toISOString().split('T')[0];
+      const filename = `analyse-juridique-${date}`;
+      
+      PdfExportService.exportAnalysisResults(this.results, filename)
+        .then(() => {
+          this.$toast.add({
+            severity: 'success',
+            summary: 'Export PDF',
+            detail: 'PDF généré avec succès',
+            life: 3000
+          });
+        })
+        .catch(error => {
+          console.error('Erreur lors de l\'export PDF:', error);
+          this.$toast.add({
+            severity: 'error',
+            summary: 'Export PDF',
+            detail: 'Erreur lors de la génération du PDF',
+            life: 3000
+          });
+        });
     },
     exportJSON() {
       // Logique d'export JSON à implémenter

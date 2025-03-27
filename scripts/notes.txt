@@ -1,1 +1,4 @@
 curl -X POST "http://localhost:8000/precedents/seed"      -H "Content-Type: application/json"      -d '{"file_path": "app/data/initial_precedents.json"}'
+
+docker exec -it legal-analyzer-frontend /bin/sh
+/app # npm install html2pdf.js --save
